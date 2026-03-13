@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,15 +8,19 @@
     <style>
         /* 基本設定とカラーパレット */
         :root {
-            --primary-dark: #1e293b; /* 落ち着いたダークネイビー */
-            --primary-main: #334155; /* メインテキスト色 */
-            --accent-blue: #2563eb;  /* 信頼感のあるブルー（ボタン等） */
-            --bg-light: #f8fafc;     /* 真っ白ではない、目に優しい背景色 */
+            --primary-dark: #1e293b;
+            /* 落ち着いたダークネイビー */
+            --primary-main: #334155;
+            /* メインテキスト色 */
+            --accent-blue: #2563eb;
+            /* 信頼感のあるブルー（ボタン等） */
+            --bg-light: #f8fafc;
+            /* 真っ白ではない、目に優しい背景色 */
             --border-color: #e2e8f0;
         }
 
         body {
-            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            font-family: 'Noto Sans JP', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
             color: var(--primary-main);
             line-height: 1.6;
             margin: 0;
@@ -23,9 +28,22 @@
             background-color: #ffffff;
         }
 
-        h1, h2, h3 { color: var(--primary-dark); margin-top: 0; }
-        a { text-decoration: none; color: inherit; }
-        img { max-width: 100%; height: auto; }
+        h1,
+        h2,
+        h3 {
+            color: var(--primary-dark);
+            margin-top: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
 
         /* レイアウト共通 */
         .container {
@@ -33,13 +51,18 @@
             margin: 0 auto;
             padding: 0 20px;
         }
-        .section-padding { padding: 80px 0; }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
         .section-title {
             text-align: center;
             font-size: 2rem;
             margin-bottom: 50px;
             position: relative;
         }
+
         .section-title::after {
             content: '';
             display: block;
@@ -58,15 +81,30 @@
             top: 0;
             z-index: 100;
         }
+
         .header-inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        .logo { font-size: 1.5rem; font-weight: bold; letter-spacing: 1px; }
-        .nav-links { display: flex; gap: 20px; font-size: 0.95rem; }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            font-size: 0.95rem;
+        }
+
         @media (max-width: 600px) {
-            .nav-links { display: none; /* スマホでは簡易化のため非表示 */ }
+            .nav-links {
+                display: none;
+                /* スマホでは簡易化のため非表示 */
+            }
         }
 
         /* ヒーローエリア（トップ） */
@@ -75,11 +113,18 @@
             padding: 100px 20px;
             text-align: center;
         }
+
+        .hero .container {
+            padding: 0;
+        }
+
         .hero h1 {
-            font-size: clamp(2rem, 5vw, 3rem); /* 画面サイズで可変 */
+            font-size: clamp(2rem, 5vw, 3rem);
+            /* 画面サイズで可変 */
             margin-bottom: 20px;
             line-height: 1.4;
         }
+
         .hero p {
             font-size: 1.1rem;
             color: #475569;
@@ -93,35 +138,65 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
+
         .concept-card {
             background: #ffffff;
             padding: 30px 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             border: 1px solid var(--border-color);
         }
-        .concept-card h3 { font-size: 1.25rem; margin-bottom: 15px; color: var(--accent-blue); }
+
+        .concept-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+            color: var(--accent-blue);
+        }
 
         /* スキル・実績（少しテクニカルに） */
-        .skills-bg { background-color: var(--bg-light); }
+        .skills-bg {
+            background-color: var(--bg-light);
+        }
+
         .skill-item {
             margin-bottom: 30px;
             border-bottom: 1px solid var(--border-color);
             padding-bottom: 20px;
         }
-        .skill-item:last-child { border-bottom: none; }
+
+        .skill-item:last-child {
+            border-bottom: none;
+        }
+
         .skill-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
             margin-bottom: 10px;
         }
-        .skill-name { font-size: 1.25rem; font-weight: bold; color: var(--primary-dark); }
-        .skill-tags { font-size: 0.85rem; color: #64748b; font-family: monospace; }
-        
+
+        .skill-name {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--primary-dark);
+        }
+
+        .skill-tags {
+            font-size: 0.85rem;
+            color: #64748b;
+            font-family: monospace;
+        }
+
         /* お問い合わせ */
-        .contact-area { text-align: center; }
-        .contact-area p { margin-bottom: 30px; font-size: 1.1rem; }
+        .contact-area {
+            text-align: center;
+        }
+
+        .contact-area p {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
         .btn {
             display: inline-block;
             background-color: var(--accent-blue);
@@ -132,7 +207,10 @@
             font-weight: bold;
             transition: background-color 0.3s;
         }
-        .btn:hover { background-color: #1d4ed8; }
+
+        .btn:hover {
+            background-color: #1d4ed8;
+        }
 
         /* フッター */
         footer {
@@ -142,12 +220,29 @@
             padding: 30px 0;
             font-size: 0.9rem;
         }
+
         html {
-            scroll-behavior: smooth; /* スムーススクロールを有効化 */
-            scroll-padding-top: 80px; /* 固定ヘッダーの高さ分、リンクの着地点をズラす */
+            scroll-behavior: smooth;
+            /* スムーススクロールを有効化 */
+            scroll-padding-top: 80px;
+            /* 固定ヘッダーの高さ分、リンクの着地点をズラす */
+        }
+
+        /* --- テキスト折り返し制御用 --- */
+        .ib {
+            display: inline-block;
+            /* 単語の途中での改行を防ぐ */
+        }
+
+        @media (max-width: 600px) {
+            .pc-only {
+                display: none;
+                /* スマホでは強制改行を無効化する */
+            }
         }
     </style>
 </head>
+
 <body>
 
     <header>
@@ -163,8 +258,15 @@
 
     <section class="hero">
         <div class="container">
-            <h1>「こんなことできる？」を、<br>確かな形に。</h1>
-            <p>システム開発の「分からない」に寄り添います。<br>インターネット黎明期からの深い知見と、現場目線のスピード感で、<br>御社のビジネスの課題を泥臭く解決するエンジニアです。</p>
+            <h1>
+                <span class="ib">「こんなことできる？」を、</span><span class="ib">確かな形に。</span>
+            </h1>
+            <p>
+                <span class="ib">システム開発の</span><span class="ib">「分からない」に寄り添います。</span><br class="pc-only">
+                <span class="ib">インターネット黎明期からの</span><span class="ib">深い知見と、</span><span
+                    class="ib">現場目線のスピード感で、</span><br class="pc-only">
+                <span class="ib">御社のビジネスの課題を</span><span class="ib">泥臭く解決する</span><span class="ib">エンジニアです。</span>
+            </p>
         </div>
     </section>
 
@@ -181,7 +283,8 @@
             </div>
             <div class="concept-card">
                 <h3>レガシーシステムの「救済」</h3>
-                <p>「作った担当者が辞めてしまった」「古すぎて他社に改修を断られた」といった既存システム（特にPHPやJava）の調査・保守・引き継ぎも得意としています。既存のコードを読み解き、安全に延命・モダン化を図ります。</p>
+                <p>「作った担当者が辞めてしまった」「古すぎて他社に改修を断られた」といった既存システム（特にPHPやJava）の調査・保守・引き継ぎも得意としています。既存のコードを読み解き、安全に延命・モダン化を図ります。
+                </p>
             </div>
         </div>
     </section>
@@ -190,14 +293,15 @@
         <div class="container">
             <h2 class="section-title">技術スタンスと実績</h2>
             <div class="concept-grid" style="grid-template-columns: 1fr;"> <!-- 1カラムで広く使う -->
-                
+
                 <div class="skill-item">
                     <div class="skill-header">
                         <span class="skill-name">PHP</span>
                         <span class="skill-tags">#LAMP #Legacy_Code #Refactoring</span>
                     </div>
                     <p><strong>【素人のお客様へ】</strong>Webサイトの機能追加や、社内向けWebシステムの構築など、最も得意とする領域です。低コストかつスピーディーに開発を行います。<br>
-                    <strong>【玄人のお客様へ】</strong>インターネット黎明期から20年以上の経験があります。フレームワーク非依存の古いネイティブPHPコードの解読、脆弱性対応、段階的なリファクタリングなど、泥臭い改修要件に確実に応えます。</p>
+                        <strong>【玄人のお客様へ】</strong>インターネット黎明期から20年以上の経験があります。フレームワーク非依存の古いネイティブPHPコードの解読、脆弱性対応、段階的なリファクタリングなど、泥臭い改修要件に確実に応えます。
+                    </p>
                 </div>
 
                 <div class="skill-item">
@@ -213,7 +317,8 @@
                         <span class="skill-name">Python / Database</span>
                         <span class="skill-tags">#Automation #MySQL #SQLServer</span>
                     </div>
-                    <p>「毎月数日かかっているExcelの集計作業」などを、Pythonスクリプトで数分で終わるように自動化（DX化）します。また、システムを支えるデータベースの適切な設計や、遅いクエリのチューニングも行います。</p>
+                    <p>「毎月数日かかっているExcelの集計作業」などを、Pythonスクリプトで数分で終わるように自動化（DX化）します。また、システムを支えるデータベースの適切な設計や、遅いクエリのチューニングも行います。
+                    </p>
                 </div>
 
             </div>
@@ -229,9 +334,12 @@
     <section id="contact" class="container section-padding">
         <h2 class="section-title">お問い合わせ</h2>
         <div class="contact-area">
-            <p>「今のシステム、ちょっと見てもらえる？」「こんなツール作れる？」<br>といった些細なご相談から承ります。強引な営業はいたしません。</p>
-            <!-- リンク先はご自身のコンタクトページやメールアドレス（mailto:〜）に変更してください -->
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfClzkxH_UziUrFVBoW1joG7E6nxmM9BX3EtvuopEv9y-DT2w/viewform" class="btn">まずは無料で相談してみる</a>
+            <p>
+                <span class="ib">「今のシステム、ちょっと見てもらえる？」</span><span class="ib">「こんなツール作れる？」といった</span><br class="pc-only">
+                <span class="ib">些細なご相談から承ります。</span><span class="ib">強引な営業はいたしません。</span>
+            </p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfClzkxH_UziUrFVBoW1joG7E6nxmM9BX3EtvuopEv9y-DT2w/viewform"
+                class="btn">まずは無料で相談してみる</a>
         </div>
     </section>
 
@@ -242,4 +350,5 @@
     </footer>
 
 </body>
+
 </html>
