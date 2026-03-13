@@ -95,7 +95,7 @@
         }
         .concept-card {
             background: #ffffff;
-            padding: 30px;
+            padding: 30px 20px;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
             border: 1px solid var(--border-color);
@@ -141,6 +141,10 @@
             text-align: center;
             padding: 30px 0;
             font-size: 0.9rem;
+        }
+        html {
+            scroll-behavior: smooth; /* スムーススクロールを有効化 */
+            scroll-padding-top: 80px; /* 固定ヘッダーの高さ分、リンクの着地点をズラす */
         }
     </style>
 </head>
@@ -213,6 +217,12 @@
                 </div>
 
             </div>
+            <h3 style="margin-top: 40px; color: var(--accent-blue);">具体的な解決事例</h3>
+            <ul style="line-height: 1.8; color: #475569;">
+                <li><strong>製造業様：</strong> 手書きだった在庫管理をWebシステム化し、月間の集計作業を20時間削減。（PHP / MySQL）</li>
+                <li><strong>士業事務所様：</strong> 既存の古い顧客管理システムを解読し、新しいサーバーへ安全に移行・保守対応。（Java）</li>
+                <li><strong>事務部門様：</strong> 毎月発生する複数Excelファイルの転記作業を、ワンクリックで終わるツール化。（Python）</li>
+            </ul>
         </div>
     </section>
 
@@ -221,7 +231,7 @@
         <div class="contact-area">
             <p>「今のシステム、ちょっと見てもらえる？」「こんなツール作れる？」<br>といった些細なご相談から承ります。強引な営業はいたしません。</p>
             <!-- リンク先はご自身のコンタクトページやメールアドレス（mailto:〜）に変更してください -->
-            <a href="https://www.klab-factory.com/contact" class="btn">まずは無料で相談してみる</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfClzkxH_UziUrFVBoW1joG7E6nxmM9BX3EtvuopEv9y-DT2w/viewform" class="btn">まずは無料で相談してみる</a>
         </div>
     </section>
 
