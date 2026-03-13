@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-Lab Factory | 伴走型システム開発エンジニア</title>
+    <style>
+        /* 基本設定とカラーパレット */
+        :root {
+            --primary-dark: #1e293b; /* 落ち着いたダークネイビー */
+            --primary-main: #334155; /* メインテキスト色 */
+            --accent-blue: #2563eb;  /* 信頼感のあるブルー（ボタン等） */
+            --bg-light: #f8fafc;     /* 真っ白ではない、目に優しい背景色 */
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            color: var(--primary-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+
+        h1, h2, h3 { color: var(--primary-dark); margin-top: 0; }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; height: auto; }
+
+        /* レイアウト共通 */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .section-padding { padding: 80px 0; }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-blue);
+            margin: 15px auto 0;
+        }
+
+        /* ヘッダー */
+        header {
+            background-color: var(--primary-dark);
+            color: #ffffff;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { font-size: 1.5rem; font-weight: bold; letter-spacing: 1px; }
+        .nav-links { display: flex; gap: 20px; font-size: 0.95rem; }
+        @media (max-width: 600px) {
+            .nav-links { display: none; /* スマホでは簡易化のため非表示 */ }
+        }
+
+        /* ヒーローエリア（トップ） */
+        .hero {
+            background-color: var(--bg-light);
+            padding: 100px 20px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3rem); /* 画面サイズで可変 */
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            color: #475569;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* コンセプト（スタンス） */
+        .concept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .concept-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+        .concept-card h3 { font-size: 1.25rem; margin-bottom: 15px; color: var(--accent-blue); }
+
+        /* スキル・実績（少しテクニカルに） */
+        .skills-bg { background-color: var(--bg-light); }
+        .skill-item {
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+        .skill-item:last-child { border-bottom: none; }
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+        }
+        .skill-name { font-size: 1.25rem; font-weight: bold; color: var(--primary-dark); }
+        .skill-tags { font-size: 0.85rem; color: #64748b; font-family: monospace; }
+        
+        /* お問い合わせ */
+        .contact-area { text-align: center; }
+        .contact-area p { margin-bottom: 30px; font-size: 1.1rem; }
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-blue);
+            color: #ffffff;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .btn:hover { background-color: #1d4ed8; }
+
+        /* フッター */
+        footer {
+            background-color: var(--primary-dark);
+            color: #94a3b8;
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">K-Lab Factory</div>
+            <nav class="nav-links">
+                <a href="#concept">ポリシー</a>
+                <a href="#skills">技術・実績</a>
+                <a href="#contact">お問い合わせ</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>「こんなことできる？」を、<br>確かな形に。</h1>
+            <p>システム開発の「分からない」に寄り添います。<br>インターネット黎明期からの深い知見と、現場目線のスピード感で、<br>御社のビジネスの課題を泥臭く解決するエンジニアです。</p>
+        </div>
+    </section>
+
+    <section id="concept" class="container section-padding">
+        <h2 class="section-title">仕事のスタンス</h2>
+        <div class="concept-grid">
+            <div class="concept-card">
+                <h3>仕様書がなくても大丈夫です</h3>
+                <p>「やりたい事はあるが、どうシステム化すればいいか分からない」。そんな状態からご相談ください。ヒアリングを通じて要件を整理し、必要な機能を提案します。ITの専門用語は極力使わずにご説明します。</p>
+            </div>
+            <div class="concept-card">
+                <h3>「見ながら直す」スピード感</h3>
+                <p>設計書だけで完成形を想像するのは困難です。まずは動くプロトタイプ（試作品）を素早く構築します。実際に画面を触りながら修正を繰り返すアジャイル的なアプローチで、認識のズレと手戻りコストを防ぎます。</p>
+            </div>
+            <div class="concept-card">
+                <h3>レガシーシステムの「救済」</h3>
+                <p>「作った担当者が辞めてしまった」「古すぎて他社に改修を断られた」といった既存システム（特にPHPやJava）の調査・保守・引き継ぎも得意としています。既存のコードを読み解き、安全に延命・モダン化を図ります。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills-bg section-padding">
+        <div class="container">
+            <h2 class="section-title">技術スタンスと実績</h2>
+            <div class="concept-grid" style="grid-template-columns: 1fr;"> <!-- 1カラムで広く使う -->
+                
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">PHP</span>
+                        <span class="skill-tags">#LAMP #Legacy_Code #Refactoring</span>
+                    </div>
+                    <p><strong>【素人のお客様へ】</strong>Webサイトの機能追加や、社内向けWebシステムの構築など、最も得意とする領域です。低コストかつスピーディーに開発を行います。<br>
+                    <strong>【玄人のお客様へ】</strong>インターネット黎明期から20年以上の経験があります。フレームワーク非依存の古いネイティブPHPコードの解読、脆弱性対応、段階的なリファクタリングなど、泥臭い改修要件に確実に応えます。</p>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Java / C#</span>
+                        <span class="skill-tags">#Enterprise #Desktop_App #Maintenance</span>
+                    </div>
+                    <p>堅牢さが求められる業務基幹システムや、Windows向けのデスクトップアプリケーション（VSTOアドオン等）の開発・保守を行います。複雑な業務ロジックのシステム化はお任せください。</p>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Python / Database</span>
+                        <span class="skill-tags">#Automation #MySQL #SQLServer</span>
+                    </div>
+                    <p>「毎月数日かかっているExcelの集計作業」などを、Pythonスクリプトで数分で終わるように自動化（DX化）します。また、システムを支えるデータベースの適切な設計や、遅いクエリのチューニングも行います。</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container section-padding">
+        <h2 class="section-title">お問い合わせ</h2>
+        <div class="contact-area">
+            <p>「今のシステム、ちょっと見てもらえる？」「こんなツール作れる？」<br>といった些細なご相談から承ります。強引な営業はいたしません。</p>
+            <!-- リンク先はご自身のコンタクトページやメールアドレス（mailto:〜）に変更してください -->
+            <a href="https://www.klab-factory.com/contact" class="btn">まずは無料で相談してみる</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            &copy; K-Lab Factory. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
