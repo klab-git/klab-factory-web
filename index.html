@@ -109,9 +109,30 @@
 
         /* ヒーローエリア（トップ） */
         .hero {
-            background-color: var(--bg-light);
-            padding: 100px 20px;
+            position: relative;
+            background-color: var(--primary-dark);
+            /* 画像のパスを指定 */
+            background-image: url('./images/hero-bg.png');
+            background-size: cover;
+            background-position: center;
+            padding: 120px 20px;
             text-align: center;
+            color: #ffffff;
+            /* 文字を白に */
+            z-index: 1;
+        }
+
+        /* 背景画像を少し暗くして文字を読みやすくするオーバーレイ */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(30, 41, 59, 0.85);
+            /* ダークネイビーの半透明 */
+            z-index: -1;
         }
 
         .hero .container {
@@ -119,17 +140,68 @@
         }
 
         .hero h1 {
+            color: #ffffff;
             font-size: clamp(2rem, 5vw, 3rem);
-            /* 画面サイズで可変 */
             margin-bottom: 20px;
             line-height: 1.4;
         }
 
         .hero p {
+            color: #e2e8f0;
+            /* 少し柔らかい白 */
             font-size: 1.1rem;
-            color: #475569;
             max-width: 700px;
             margin: 0 auto;
+        }
+
+        /* --- 具体的な事例（Works）カード用 --- */
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .works-card {
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease;
+        }
+
+        .works-card:hover {
+            transform: translateY(-5px);
+            /* マウスホバーで少し浮く */
+        }
+
+        .works-img {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            /* イラスト全体が見えるように */
+            background-color: #f8fafc;
+            padding: 10px;
+            box-sizing: border-box;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .works-content {
+            padding: 20px;
+        }
+
+        .works-content h3 {
+            font-size: 1.15rem;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+        }
+
+        .works-content p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+            line-height: 1.6;
         }
 
         /* コンセプト（スタンス） */
@@ -322,12 +394,40 @@
                 </div>
 
             </div>
-            <h3 style="margin-top: 40px; color: var(--accent-blue);">具体的な解決事例</h3>
-            <ul style="line-height: 1.8; color: #475569;">
-                <li><strong>製造業様：</strong> 手書きだった在庫管理をWebシステム化し、月間の集計作業を20時間削減。（PHP / MySQL）</li>
-                <li><strong>士業事務所様：</strong> 既存の古い顧客管理システムを解読し、新しいサーバーへ安全に移行・保守対応。（Java）</li>
-                <li><strong>事務部門様：</strong> 毎月発生する複数Excelファイルの転記作業を、ワンクリックで終わるツール化。（Python）</li>
-            </ul>
+        </div>
+    </section>
+
+    <section id="works" class="container section-padding">
+        <h2 class="section-title">具体的な解決事例</h2>
+        <div class="works-grid">
+
+            <!-- 事例1 -->
+            <div class="works-card">
+                <img src="./images/works-1.jpg" alt="業務自動化" class="works-img">
+                <div class="works-content">
+                    <h3>事務作業の自動化・DX</h3>
+                    <p>毎月数日かかっていた複数Excelファイルの転記や集計作業を、ワンクリックで完了するツール化。人的ミスを防ぎ、大幅なコスト削減を実現します。</p>
+                </div>
+            </div>
+
+            <!-- 事例2 -->
+            <div class="works-card">
+                <img src="./images/works-2.jpg" alt="マッチング・顧客管理" class="works-img">
+                <div class="works-content">
+                    <h3>顧客管理・マッチングシステム</h3>
+                    <p>散在していた顧客データや人材データの一元管理システムを構築。Web上でスムーズなマッチングや検索ができる仕組みを提供します。</p>
+                </div>
+            </div>
+
+            <!-- 事例3 -->
+            <div class="works-card">
+                <img src="./images/works-3.jpg" alt="基幹システム" class="works-img">
+                <div class="works-content">
+                    <h3>経営課題を解決するシステム</h3>
+                    <p>売上管理や工程管理など、会社独自の複雑な業務フローに合わせた専用システムを開発。パッケージソフトでは手が届かない部分をカバーします。</p>
+                </div>
+            </div>
+
         </div>
     </section>
 
